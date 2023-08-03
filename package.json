@@ -1,0 +1,30 @@
+{
+  "name": "currency-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShahzaibSE/project004-currency-converter.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript"
+  ],
+  "author": "shahzaib-noor-se",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShahzaibSE/project004-currency-converter/issues"
+  },
+  "homepage": "https://github.com/ShahzaibSE/project004-currency-converter#readme",
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/inquirer": "^9.0.3",
+    "chalk": "^5.3.0",
+    "figlet": "^1.6.0",
+    "inquirer": "^8.2.6"
+  }
+}
