@@ -59,9 +59,7 @@ export async function getUserInput(
   }
 }
 
-export async function confirmationPrompt(): Promise<
-  boolean | undefined
-> {
+export async function confirmationPrompt(): Promise<boolean> {
   try {
     let { is_confirm } = await inquirer.prompt({
       type: "confirm",
@@ -75,4 +73,8 @@ export async function confirmationPrompt(): Promise<
     console.log(err);
     return false;
   }
+}
+
+function convert(amount: number, from: string, to: string) {
+  
 }
