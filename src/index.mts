@@ -3,15 +3,7 @@ import inquirer from "inquirer";
 import figlet from "figlet";
 import chalkAnimation from "chalk-animation";
 import { getUserInput } from "./utils.mjs";
-
-enum Currencies {
-  USD = "usd",
-  CAD = "cad",
-  QUID = "quid",
-  PKR = "pkr",
-  EUR = "eur",
-  RIYAL = "riyal"
-}
+import { Currencies, currency_rates } from "./utils.mjs";
 
 (async function () {
   try {
@@ -38,25 +30,18 @@ enum Currencies {
     //
     setTimeout(async () => {
         try{
-          let isQuit: boolean = false;
+          let isQuit: boolean = true;
           const currencies = Object.values(Currencies); 
-          while(!isQuit) {
-            const currency_options: string = await getUserInput("check", "Choose Your Currency" ,"currency1", currencies);
+          while(isQuit) {
+            const currency_to_exchange: string = await getUserInput("list", "Choose Your Currency" ,"currency_to_exchange", currencies);
+            const resultant_currency: string = await getUserInput("list", "Choose Your Currency" ,"resultant_currency", currencies);
+            let {is_confirm} = await inquirer.prompt({
+              type: "confirm",
+              message: "Do you want to continue?",
+              name: "is_confirm"
+            })
+            isQuit = is_confirm;
             //
-            switch(currency_options) {
-              case Currencies.USD:
-                console.log("USD")
-              case Currencies.EUR:
-                console.log("EUR");
-              case Currencies.CAD:
-                console.log("CAD");
-              case Currencies.PKR:
-                console.log("PKR");
-              case Currencies.QUID:
-                console.log("QUID");
-              case Currencies.RIYAL:
-                console.log("RIYAL");
-            }
           }
         }catch(err){
           console.log(err);
